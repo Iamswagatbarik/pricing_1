@@ -1,0 +1,351 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#93000a",
+                        "surface-bright": "#393939",
+                        "tertiary": "#ffffff",
+                        "inverse-on-surface": "#313030",
+                        "surface-variant": "#353534",
+                        "on-secondary-container": "#b8b8b8",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#5d5f5f",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#464747",
+                        "surface-container-highest": "#353534",
+                        "surface-container-high": "#2a2a2a",
+                        "on-primary": "#2f3131",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e5e2e1",
+                        "outline": "#8e9192",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "secondary-fixed": "#e3e2e2",
+                        "on-secondary": "#2f3131",
+                        "inverse-surface": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-tint": "#c6c6c7",
+                        "on-primary-fixed": "#1a1c1c",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "primary-fixed": "#e2e2e2",
+                        "tertiary-container": "#e4e2e1",
+                        "secondary": "#c7c6c6",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "secondary-container": "#484949",
+                        "primary-container": "#e2e2e2",
+                        "on-tertiary-container": "#656464",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-dim": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "on-tertiary": "#303030",
+                        "surface-container": "#201f1f",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "outline-variant": "#444748",
+                        "surface-container-low": "#1c1b1b",
+                        "on-surface-variant": "#c4c7c8",
+                        "primary": "#ffffff",
+                        "background": "#131313",
+                        "on-primary-container": "#636565",
+                        "surface": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "xl": "40px",
+                        "unit": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["\"Source Serif 4\""],
+                        "body-sm": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["\"Source Serif 4\""],
+                        "headline-sm": ["\"Source Serif 4\""],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-caps": ["Hanken Grotesk"],
+                        "headline-lg": ["\"Source Serif 4\""]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .editorial-rule {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pricing-table-row:hover {
+            background-color: #2a2a2a;
+            transition: background-color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-background overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<div class="font-headline-sm text-headline-sm tracking-tighter text-primary">
+                Quantum Studio
+            </div>
+<div class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-lg py-sm font-label-caps uppercase transition-all duration-300 hover:opacity-80">
+                Get Started
+            </button>
+</nav>
+</header>
+<main class="pt-32 pb-xl px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<!-- Hero Section -->
+<section class="mb-xl text-center md:text-left">
+<span class="font-label-caps text-on-surface-variant mb-sm block uppercase tracking-widest">Pricing Structure</span>
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-lg max-w-2xl">
+                Transparent &amp; <br>Results-Driven Pricing
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                Premium digital execution with zero hidden costs. Invest in scalable growth systems designed for the modern elite enterprise.
+            </p>
+</section>
+<!-- Pricing Bento Overview -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+<!-- Starter Card -->
+<div class="p-lg border border-white/10 flex flex-col justify-between h-full bg-surface-container-low">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Starter</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Foundation for emerging brands.</p>
+<div class="mb-xl">
+<span class="font-label-caps text-on-surface-variant block mb-1 uppercase">Investment</span>
+<div class="font-headline-md text-headline-md text-primary">₹15k - 25k</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant italic">One-time setup</span>
+</div>
+</div>
+<button class="w-full border border-white text-primary py-md font-label-caps uppercase hover:bg-primary hover:text-on-primary transition-all">Get Started</button>
+</div>
+<!-- Professional Card (Highlighted) -->
+<div class="p-lg border border-white flex flex-col justify-between h-full bg-surface-container relative">
+<div class="absolute -top-3 right-lg bg-primary text-on-primary px-sm py-1 font-label-caps text-[10px] uppercase">Recommended</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Professional</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Scalable systems for growing firms.</p>
+<div class="mb-xl">
+<span class="font-label-caps text-on-surface-variant block mb-1 uppercase">Investment</span>
+<div class="font-headline-md text-headline-md text-primary">₹25k - 40k</div>
+<div class="font-body-lg text-body-lg text-primary mt-2">+ ₹5,000<span class="text-on-surface-variant">/mo</span></div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-md font-label-caps uppercase hover:opacity-90 transition-all">Get Started</button>
+</div>
+<!-- Growth Card -->
+<div class="p-lg border border-white/10 flex flex-col justify-between h-full bg-surface-container-low">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Growth</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Full-scale digital dominance.</p>
+<div class="mb-xl">
+<span class="font-label-caps text-on-surface-variant block mb-1 uppercase">Investment</span>
+<div class="font-headline-md text-headline-md text-primary">₹25k - 40k</div>
+<div class="font-body-lg text-body-lg text-primary mt-2">+ ₹10,000<span class="text-on-surface-variant">/mo</span></div>
+</div>
+</div>
+<button class="w-full border border-white text-primary py-md font-label-caps uppercase hover:bg-primary hover:text-on-primary transition-all">Get Started</button>
+</div>
+</div>
+<!-- Detailed Comparison Table (Recreated from Reference) -->
+<div class="overflow-x-auto mb-xl">
+<table class="w-full border-collapse">
+<thead>
+<tr class="editorial-rule">
+<th class="text-left py-lg font-headline-sm text-headline-sm text-primary w-1/4">Feature</th>
+<th class="text-left py-lg font-headline-sm text-headline-sm text-primary w-1/4 italic">Starter</th>
+<th class="text-left py-lg font-headline-sm text-headline-sm text-primary w-1/4 italic">Professional</th>
+<th class="text-left py-lg font-headline-sm text-headline-sm text-primary w-1/4 italic">Growth</th>
+</tr>
+</thead>
+<tbody class="font-headline-sm text-headline-sm text-on-surface">
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">Website Pages</td>
+<td class="py-lg italic">5</td>
+<td class="py-lg italic">5-10</td>
+<td class="py-lg italic">Custom</td>
+</tr>
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">On-Page SEO</td>
+<td class="py-lg italic">Basic</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span> Full</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span> Full</td>
+</tr>
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">Technical SEO</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span> Essential</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span> Comprehensive</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span> Comprehensive</td>
+</tr>
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">Mobile Responsive</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+</tr>
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">Analytics Setup</td>
+<td class="py-lg italic">—</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+</tr>
+<tr class="editorial-rule pricing-table-row">
+<td class="py-lg">Google Ads Mgmt</td>
+<td class="py-lg italic">—</td>
+<td class="py-lg italic">—</td>
+<td class="py-lg italic"><span class="material-symbols-outlined">check</span></td>
+</tr>
+<tr class="editorial-rule pricing-table-row" style="transform: translateX(0px);">
+<td class="py-lg">Monthly Reports</td>
+<td class="py-lg italic">—</td>
+<td class="py-lg italic">Maintenance</td>
+<td class="py-lg italic">Full Performance</td>
+</tr>
+</tbody>
+</table>
+</div><section class="mb-xl">
+<div class="text-center mb-lg">
+<span class="font-label-caps text-on-surface-variant mb-sm block uppercase tracking-widest">Add-ons</span>
+<h2 class="font-headline-md text-headline-md text-primary">Standalone Services</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Google Ads Card -->
+<div class="p-lg border border-white/10 bg-surface-container-low flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Google Ads Only</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Campaign management &amp; optimization.</p>
+<div class="mb-lg">
+<div class="font-headline-md text-headline-md text-primary">₹8,000<span class="text-body-lg text-on-surface-variant">/mo</span></div>
+</div>
+</div>
+<button class="w-full border border-white text-primary py-sm font-label-caps uppercase hover:bg-primary hover:text-on-primary transition-all">Add Service</button>
+</div>
+<!-- SEO Card -->
+<div class="p-lg border border-white/10 bg-surface-container-low flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">SEO Only</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Ongoing search engine optimization.</p>
+<div class="mb-lg">
+<div class="font-headline-md text-headline-md text-primary">₹3k - 5k<span class="text-body-lg text-on-surface-variant">/mo</span></div>
+</div>
+</div>
+<button class="w-full border border-white text-primary py-sm font-label-caps uppercase hover:bg-primary hover:text-on-primary transition-all">Add Service</button>
+</div>
+<!-- Analytics Card -->
+<div class="p-lg border border-white/10 bg-surface-container-low flex flex-col justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-xs">Analytics Setup</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-lg">Comprehensive tracking implementation.</p>
+<div class="mb-lg">
+<div class="font-headline-md text-headline-md text-primary">₹2,000</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant italic">One-time setup</span>
+</div>
+</div>
+<button class="w-full border border-white text-primary py-sm font-label-caps uppercase hover:bg-primary hover:text-on-primary transition-all">Get Started</button>
+</div>
+</div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-xl text-center bg-surface-container-high px-lg my-xl">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-lg">Ready to Scale?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-xl max-w-2xl mx-auto">
+                Schedule a consultation with our strategy team to determine the best path for your digital expansion.
+            </p>
+<div class="flex flex-col md:flex-row justify-center gap-md">
+<button class="bg-primary text-on-primary px-xl py-md font-label-caps uppercase transition-all hover:scale-[1.02]">Consult an Expert</button>
+<button class="border border-white text-primary px-xl py-md font-label-caps uppercase transition-all hover:bg-white/10">View Portfolio</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background border-t border-white/10">
+<div class="py-xl px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="font-headline-sm text-headline-sm text-primary">
+                Quantum Studio
+            </div>
+<div class="flex flex-wrap justify-center gap-lg font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+                © 2024 Quantum Studio. All rights reserved.
+            </div>
+</div>
+</footer>
+<script>
+        // Micro-interactions
+        document.querySelectorAll('.pricing-table-row').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(8px)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+        });
+
+        // Simple scroll reveal for the header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+
+
+
+
+</body></html>
